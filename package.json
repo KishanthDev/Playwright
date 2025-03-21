@@ -10,6 +10,10 @@
     "test:e2e": "npm exec playwright test",
     "test:e2e:ui": "npm exec playwright test --ui"
   },
+  "engines": {
+  "node": "18.x",
+  "pnpm": "8.x"
+},
   "dependencies": {
     "@auth/prisma-adapter": "2.7.2",
     "@hookform/resolvers": "^3.9.1",
