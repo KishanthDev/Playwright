@@ -2,9 +2,9 @@
 import { PrismaClient, Prisma } from '@prisma/client';  
 
 import { signIn, signOut } from "@/auth";
-import { signUpSchema } from "@/lib/zod";
+import { signUpSchema } from "../../lib/zod";
 import { AuthError } from "next-auth";
-import { getSessionTokenForTest } from "@/tests/utils/auth";
+import { getSessionTokenForTest } from "../../tests/utils/auth";
 import { JWT } from "next-auth/jwt";
 
 import bcryptjs from "bcryptjs";
