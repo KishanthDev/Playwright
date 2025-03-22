@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
 import {
     Form,
     FormControl,
@@ -10,8 +10,8 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import LoadingButton from "@/components/loading-button";
+import { Input } from "../../../components/ui/input";
+import LoadingButton from "../../../components/loading-button";
 import ErrorMessage from "@/components/error-message";
 
 import { useForm } from "react-hook-form";

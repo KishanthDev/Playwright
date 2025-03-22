@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
 import {
   Form,
   FormControl,
@@ -8,18 +8,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "../../../components/ui/form";
+import { Input } from "../../../components/ui/input";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { signInSchema } from "@/lib/zod";
-import LoadingButton from "@/components/loading-button";
+import { signInSchema } from "../../../lib/zod";
+import LoadingButton from "../../../components/loading-button";
 import { handleCredentialsSignin } from "@/app/actions/authActions";
 import { useState, useEffect } from "react";
-import ErrorMessage from "@/components/error-message";
+import ErrorMessage from "../../../components/error-message";
 
 import { useRouter, useSearchParams } from "next/navigation";
 
