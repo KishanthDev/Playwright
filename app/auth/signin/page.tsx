@@ -17,7 +17,7 @@ import { z } from "zod";
 
 import { signInSchema } from "../../../lib/zod";
 import LoadingButton from "../../../components/loading-button";
-import { handleCredentialsSignin } from "@/app/actions/authActions";
+import { handleCredentialsSignin } from "../../../app/actions/authActions";
 import { useState, useEffect } from "react";
 import ErrorMessage from "../../../components/error-message";
 

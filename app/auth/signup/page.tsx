@@ -9,19 +9,19 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form";
+} from "../../../components/ui/form";
 import { Input } from "../../../components/ui/input";
 import LoadingButton from "../../../components/loading-button";
-import ErrorMessage from "@/components/error-message";
+import ErrorMessage from "../../../components/error-message";
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signUpSchema } from "@/lib/zod";
+import { signUpSchema } from "../../../lib/zod";
 import {
     handleCredentialsSignin,
     handleSignUp,
-} from "@/app/actions/authActions";
+} from "../../../app/actions/authActions";
 
 export default function SignUp() {
     const [globalError, setGlobalError] = useState("");
