@@ -18,30 +18,28 @@ import { z } from "zod";
 import { signInSchema } from "../../../lib/zod";
 import LoadingButton from "../../../components/loading-button";
 import { handleCredentialsSignin } from "../../../app/actions/authActions";
-import { useState, useEffect } from "react";
+import { useState, Suspense } from "react"; // Add Suspense
 import ErrorMessage from "../../../components/error-message";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-export default function SignIn() {
+// Wrap the component using useSearchParams() in Suspense
+function SignInForm() {
   const params = useSearchParams();
   const error = params.get("error");
-  const router = useRouter();
 
   const [globalError, setGlobalError] = useState<string>("");
 
-  useEffect(() => {
-    if (error) {
-      switch (error) {
-        case "OAuthAccountNotLinked":
-          setGlobalError("Please use your email and password to sign in.");
-          break;
-        default:
-          setGlobalError("An unexpected error occurred. Please try again.");
-      }
+  // Handle the error query parameter
+  if (error) {
+    switch (error) {
+      case "OAuthAccountNotLinked":
+        setGlobalError("Please use your email and password to sign in.");
+        break;
+      default:
+        setGlobalError("An unexpected error occurred. Please try again.");
     }
-    router.replace("/auth/signin");
-  }, [error, router]);
+  }
 
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
@@ -113,7 +111,6 @@ export default function SignIn() {
                 )}
               />
 
-              {/* Submit button will go here */}
               <LoadingButton pending={form.formState.isSubmitting}>
                 Sign in
               </LoadingButton>
@@ -122,5 +119,13 @@ export default function SignIn() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function SignIn() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SignInForm />
+    </Suspense>
   );
 }
